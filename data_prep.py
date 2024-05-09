@@ -11,7 +11,7 @@ height = Config.height
 width = Config.width
 
 class ImageDataset(Dataset):
-    def __init__(self, image_paths: str, mask_paths: str, transforms):
+    def __init__(self, image_paths, mask_paths, transforms):
         super().__init__()
         self.transforms = transforms
         self.images = image_paths
@@ -22,7 +22,7 @@ class ImageDataset(Dataset):
     
     def __getitem__(self, idx):
         image = self.images[idx]
-        mask = self.mask[idx]
+        mask = self.masks[idx]
         
         image = cv2.imread(image)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -35,12 +35,12 @@ class ImageDataset(Dataset):
         
         return (image, mask)
 
-images = sorted()
-masks = sorted()
+images = None
+masks = None
 
 image_transforms = torchvision.transforms.Compose([
     transforms.ToPILImage(),
-    transforms.Resize((Config.height, Config.width)),
+    transforms.Resize((Config.height, Config.width)), 
     transforms.ToTensor()
 ])
 

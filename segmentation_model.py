@@ -1,7 +1,6 @@
-from networkx import is_planar
 import torch
 import torchvision
-from torch import nn, relu
+from torch import nn
 
 # 221029255650
 
@@ -17,7 +16,7 @@ class encoder_conv_block(nn.Module):
             nn.ReLU(inplace=True),
             nn.Conv2d(output, output, kernel_size=3, padding=1),
             nn.BatchNorm2d(output),
-            nn.ReLU(inplace=True),
+            nn.ReLU(inplace=True)
         )
 
     def forward(self, x):

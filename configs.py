@@ -1,3 +1,4 @@
+from pyexpat import model
 import torch
 import cv2
 
@@ -7,7 +8,7 @@ class Config:
     num_classes = 1
     num_channels = 1
     num_levels = 3
-    lr = 0.001
+    lr = 0.01
     height = 512
     width = 512
     base_dir = '/kaggle/input/'
@@ -15,6 +16,7 @@ class Config:
     device = ("cuda" if torch.cuda.is_available() else "cpu")
     model_output_path = 'hikari_image_segment.pth'
     momentum = 0.9
+    model_name = 'image_segment_hikari'
 
 
 def read_img(image_file, config):
