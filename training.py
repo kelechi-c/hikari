@@ -3,7 +3,7 @@ import torchvision
 import torch.nn as nn
 from configs import Config
 from data_prep import train_data, valid_data
-from segmentation_model import hikari_segmenter_model
+from unet_model import hikari_segmenter_model
 from tqdm.auto import tqdm # type: ignore
 from pathlib import Path
 
